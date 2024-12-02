@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .skb-container {
+        background-color: #06445a;
+        height: 100vh;
+        width: 100%;
+        display: none;
+        align-items: center;
+        justify-content: center;
+      }
+      *,
+      body {
+        padding: 0;
+        margin: 0;
+      }
+      .skb-container .skb-modal {
+        background-color: #ededed;
+        height: 600px;
+        width: 60%;
+        border-radius: 13px;
+        position: relative;
+      }
+      .skb-container .skb-modal .close {
+        background-color: #cc0c00;
+        font-size: 30px;
+        height: 50px;
+        width: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        position: absolute;
+        top: -15px;
+        right: -15px;
+        border-radius: 5443px;
+      }
+
+      .skb-container .skb-modal .main-modal {
+        padding: 40px;
+      }
+      .skb-container .skb-modal .main-modal .modal-header {
+        font-size: 21px;
+      }
+      .skb-container .skb-modal .main-modal .modal-footer {
+        margin-top: 12px;
+        border-top: 3px solid;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+      }
+      .skb-container .skb-modal .main-modal .modal-body {
+        margin-top: 13px;
+      }
+      .skb-container .skb-modal .main-modal .modal-body .items {
+        display: flex;
+        gap: 20px;
+      }
+      .skb-container .skb-modal .main-modal .modal-body .items .item {
+        border: 3px solid #d0d0d0;
+        padding: 10px 20px;
+        border-radius: 8px;
+      }
+      .skb-container .skb-modal .main-modal .modal-body .table {
+        margin-top: 15px;
+        width: 100%;
+      }
+      .skb-container .skb-modal .main-modal .modal-body .table table {
+        margin-top: 15px;
+        width: 100%;
+      }
+      .skb-container .skb-modal .main-modal .modal-body .table tr {
+        border: 2px solid #b8b8b8;
+        text-align: left;
+      }
+      .skb-container .skb-modal .main-modal .modal-body .table tr th {
+        font-size: 21px;
+        font-weight: bold;
+        border: 2px solid #b8b8b8;
+        padding: 6px;
+      }
+      .skb-container .skb-modal .main-modal .modal-body .table tr td {
+        font-size: 16px;
+        border: 2px solid #b8b8b8;
+        font-weight: 400;
+        padding: 6px;
+      }
+      .scrollber {
+        overflow-y: scroll;
+        max-height: 450px;
+        height: 450px;
+      }
+
+      .floating-btn {
+        background-color: #cc0c00;
+        padding: 15px;
+        width: 120px;
+        border-radius: 8px;
+        color: #fff;
+        position: absolute;
+        bottom: 30px;
+        left: 30px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="skb-container">
+      <div class="skb-modal">
+        <div class="close">
+          <span>X</span>
+        </div>
+        <div class="main-modal">
+          <div class="modal-header">
+            <h3>Detailed Timing abou you, Mr. Shakib Shown</h3>
+          </div>
+          <div class="modal-body scrollber">
+            <div class="items">
+              <div class="item">
+                Total Hour Logs: <span>1 hr 30 Munites</span>
+              </div>
+              <div class="item">
+                Last Login: <span>12, Dec 2024 11:40 PM</span>
+              </div>
+            </div>
+            <div class="table">
+              <h2>Check Your Daily Times</h2>
+              <table>
+                <tr>
+                  <th>Date</th>
+                  <th>Total Time</th>
+                </tr>
+                <tr>
+                  <td>12 Dec 2024</td>
+                  <td>1hr 30 Munites</td>
+                </tr>
+                <tr>
+                  <td>12 Dec 2024</td>
+                  <td>1hr 30 Munites</td>
+                </tr>
+                <tr>
+                  <td>12 Dec 2024</td>
+                  <td>1hr 30 Munites</td>
+                </tr>
+                <tr>
+                  <td>12 Dec 2024</td>
+                  <td>1hr 30 Munites</td>
+                </tr>
+                <tr>
+                  <td>12 Dec 2024</td>
+                  <td>1hr 30 Munites</td>
+                </tr>
+                <tr>
+                  <td>12 Dec 2024</td>
+                  <td>1hr 30 Munites</td>
+                </tr>
+                <tr>
+                  <td>12 Dec 2024</td>
+                  <td>1hr 30 Munites</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="modal-footer">Thanks For staying with us</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="floating-btn">
+      <div class="sbtn">View My times</div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      jQuery(document).ready(function ($) {
+        $(".skb-container .close").click(function () {
+          $(".skb-container").css("display", "none");
+          console.log("Closed");
+        });
+        $(".floating-btn").click(function () {
+          console.log("Open");
+          $(".skb-container").css("display", "flex");
+        });
+      });
+    </script>
+  </body>
+</html>
