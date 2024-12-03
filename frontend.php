@@ -3,30 +3,27 @@ function log_current_user_in_footer()
 {
     if (is_user_logged_in()) {
         $current_user = wp_get_current_user();
-        error_log('Current User ID: ' . $current_user->ID);
-        error_log('Current User Name: ' . $current_user->user_login);
         $user_id = get_current_user_id();
 ?>
         <!-- Send ajax data for each second -->
         <script>
             jQuery(document).ready(function($) {
-                // Repeat it every 5 seconds
+                // Repeat it every 2 seconds
                 setInterval(function() {
                     $.ajax({
                         type: 'POST',
-                        url: <?php echo json_encode(admin_url('admin-ajax.php')); ?>, // WordPress AJAX URL
+                        url: <?php  echo json_encode(admin_url('admin-ajax.php')); ?>, // WordPress AJAX URL
                         data: {
                             action: 'add_each_seconds_to_database', // Action hook to handle the AJAX request in functions.php
-                            userid: <?php echo $user_id; ?>, // Pass the user ID
+                            userid: <?php  echo $user_id; ?>, // Pass the user ID
                         },
                         dataType: 'json',
                         success: function(response) {
-                            // Handle success response
-                            console.log(response);
+                            // Handle success response 
+                            // console.log(response);
                         },
                         error: function(xhr, textStatus, errorThrown) {
-                            // Handle error
-                            console.error('Error:', errorThrown);
+                            // Handle error 
                         }
                     });
                 }, 2000); // Send AJAX request every 5 seconds
@@ -221,25 +218,16 @@ $total_time_formatted = convert_seconds_to_hms($student->total_time);
         <script>
             jQuery(document).ready(function($) {
                 $(".skb-container .close").click(function() {
-                    $(".skb-container").css("display", "none");
-                    console.log("Closed");
+                    $(".skb-container").css("display", "none"); 
                 });
-                $(".floating-btn").click(function() {
-                    console.log("Open");
+                $(".floating-btn").click(function() { 
                     $(".skb-container").css("display", "flex");
                 });
             });
         </script>
 
-
-
-
-
-
-
+ 
 <?php
-    } else {
-        error_log('No user is logged in.');
-    }
+    } 
 }
 add_action('wp_footer', 'log_current_user_in_footer');
